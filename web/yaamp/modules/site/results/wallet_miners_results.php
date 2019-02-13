@@ -84,7 +84,8 @@ if(count($workers))
 	echo "<th align=left>Extra</th>";
 	echo "<th align=left>Algo</th>";
 	echo "<th align=right>Diff</th>";
-	echo "<th align=right title='extranonce.subscribe'>ES**</th>";
+//	echo "<th align=right title='extranonce.subscribe'>ES**</th>";
+	echo "<th align=left>Worker</th>";
 	echo "<th align=right width=80>Hashrate*</th>";
 	echo "<th align=right width=60>Reject*</th>";
 	echo "</tr>";
@@ -106,6 +107,10 @@ if(count($workers))
 		$password = substr($worker->password, 0, 32);
 		if (empty($password) && !empty($worker->worker))
 			$password = substr($worker->worker, 0, 32);
+		if (!empty($worker->worker))
+			$workerId = substr($worker->worker, 0, 32);
+		else
+			$workerId = '';
 
 		$subscribe = Booltoa($worker->subscribe);
 
@@ -115,7 +120,8 @@ if(count($workers))
 		echo '<td title="'.$worker->password.'">'.$password.'</td>';
 		echo '<td>'.$worker->algo.'</td>';
 		echo '<td align="right">'.$worker->difficulty.'</td>';
-		echo '<td align="right">'.$subscribe.'</td>';
+//		echo '<td align="right">'.$subscribe.'</td>';
+		echo '<td align="left">'.$workerId.'</td>';
 		echo '<td align="right">'.$user_rate1.'</td>';
 		echo '<td align="center" title="'.$percent.'">'.$user_rejects.'</td>';
 		echo '</tr>';

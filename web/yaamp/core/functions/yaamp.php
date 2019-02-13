@@ -5,6 +5,7 @@ function yaamp_get_algos()
 	/* Toggle Site Algos Here */
 	return array(
 		'sha256',
+		'sha256d-le',
 		'sha256t',
 		'sha256q',
 		'scrypt',
@@ -12,6 +13,7 @@ function yaamp_get_algos()
 		'allium',
 		'argon2',
 		'argon2d-dyn',
+		'argon2d-zmy',
 		'aergo',
 		'bastion',
 		'bitcore',
@@ -84,6 +86,7 @@ function yaamp_algo_mBTC_factor($algo)
 {
 	switch($algo) {
 	case 'sha256':
+	case 'sha256-le':
 	case 'sha256t':
 	case 'sha256q':
 	case 'blake':
@@ -110,12 +113,14 @@ function yaamp_get_algo_norm($algo)
 
 	$a = array(
 		'sha256'	=> 1.0,
+		'sha256-le'	=> 1.0,
 		'scrypt'	=> 1.0,
 		'scryptn'	=> 1.0,
 		'x11'		=> 1.0,
 		'x13'		=> 1.0,
 		'argon2'	=> 1.0,
 		'argon2d-dyn'	=> 1.0,
+		'argon2d-zmy'	=> 1.0,
 		'lyra2'		=> 1.0,
 		'lyra2v2'	=> 1.0,
 		'myr-gr'	=> 1.0,
@@ -145,6 +150,7 @@ function getAlgoColors($algo)
 {
 	$a = array(
 		'sha256'	=> '#d0d0a0',
+		'sha256-le'	=> '#ffff00',
 		'sha256t'	=> '#d0d0f0',
 		'sha256q'	=> '#9696dd',
 		'scrypt'	=> '#c0c0e0',
@@ -167,6 +173,7 @@ function getAlgoColors($algo)
 		'allium'	=> '#80a0d0',
 		'argon2'	=> '#e0d0e0',
 		'argon2d-dyn'	=> '#e0d0e0',
+		'argon2d-zmy'	=> '#993399',
 		'aergo'		=> '#e0d0e0',
 		'bastion'	=> '#e0b0b0',
 		'blake'		=> '#f0f0f0',
@@ -256,6 +263,7 @@ function getAlgoPort($algo)
 		'neoscrypt'	=> 4233,
 		'argon2'	=> 4234,
 		'argon2d-dyn'	=> 4239,
+		'argon2d-zmy'	=> 5501,
 		'scryptn'	=> 4333,
 		'allium'	=> 4443,
 		'lbk3'		=> 5522,
